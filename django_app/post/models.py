@@ -17,6 +17,12 @@ class Post(models.Model):
         through='PostLike',
     )
 
+    my_comment = models.OneToOneField(
+        'Comment',
+        related_name='+',
+        blank=True,
+        null=True,
+    )
 
 class PostLike(models.Model):
     post = models.ForeignKey('Post')
