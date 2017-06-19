@@ -22,3 +22,11 @@ class PostLike(models.Model):
     post = models.ForeignKey('Post')
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
     created_date = models.DateTimeField(auto_now_add=True)
+
+
+class Comment(models.Model):
+    post = models.ForeignKey('Post')
+    author = models.ForeignKey(settings.AUTH_USER_MODEL)
+    content = models.TextField()
+    created_date = models.DateTimeField(auto_now_add=True)
+    modified_date = models.DateTimeField(auto_now_add=True)
