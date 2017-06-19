@@ -11,3 +11,14 @@ class Post(models.Model):
     class Meta:
         ordering = ['-pk', ]
 
+    like_users = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        related_name='like_posts',
+        through='PostLike',
+    )
+
+
+class PostLike(models.Model):
+    post = models.ForeignKey('Post')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL)
+    created_date = models.DateTimeField(auto_now_add=True)
