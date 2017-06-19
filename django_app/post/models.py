@@ -24,6 +24,9 @@ class Post(models.Model):
         null=True,
     )
 
+    tags = models.ManyToManyField('Tag', blank=True)
+
+
 class PostLike(models.Model):
     post = models.ForeignKey('Post')
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
@@ -47,3 +50,10 @@ class CommentLike(models.Model):
     comment = models.ForeignKey('Comment')
     user = models.ForeignKey(settings.AUTH_USER_MODEL)
     created_date = models.DateTimeField(auto_now_add=True)
+
+
+class Tag(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return 'Tag({})'.format(self.name)
