@@ -1,0 +1,34 @@
+{% extends 'common/base.html' %}
+
+{% block content %}
+	<!--
+	템플릿 변수 사용하기
+		https://docs.djangoproject.com/en/1.11/ref/templates/language/#variables
+
+	템플릿에서 namespace URL reverse
+		https://docs.djangoproject.com/en/1.11/topics/http/urls/#reversing-namespaced-urls
+		
+	템플릿 태그 if
+		https://docs.djangoproject.com/en/1.11/ref/templates/builtins/#if
+
+	템플릿 태그 for
+		https://docs.djangoproject.com/en/1.11/ref/templates/builtins/#for
+		
+	템플릿 include
+		https://docs.djangoproject.com/en/1.11/ref/templates/builtins/#include
+	-->
+
+	<!--
+		Detail에서 나와야 할 요소
+		사진
+		작성자
+		작성자를 팔로잉하고 있는지 여부 및 팔로우/언팔로우 버튼
+		좋아요개수
+		댓글목록
+			댓글내용
+			태그목록
+		댓글작성
+		좋아요버튼
+	-->
+	{% include 'include/post.html' %}
+{% endblock %}
