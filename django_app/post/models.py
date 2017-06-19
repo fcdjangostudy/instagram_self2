@@ -30,3 +30,14 @@ class Comment(models.Model):
     content = models.TextField()
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now_add=True)
+    like_users = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        through='CommentLike',
+        related_name='like_comments'
+    )
+
+
+class CommentLike(models.Model):
+    comment = models.ForeignKey('Comment')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL)
+    created_date = models.DateTimeField(auto_now_add=True)
